@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital da Baleia - Avaliação de Satisfação TIC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .scale div {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        .scale div.selected {
+            border: 2px solid black;
+        }
+        .scale div:nth-child(1), .scale div:nth-child(2), .scale div:nth-child(3), .scale div:nth-child(4), .scale div:nth-child(5), .scale div:nth-child(6), .scale div:nth-child(7) {
+            background-color: #ff0000;
+        }
+        .scale div:nth-child(8), .scale div:nth-child(9) {
+            background-color: #ffcc00;
+            color: black;
+        }
+        .scale div:nth-child(10), .scale div:nth-child(11) {
+            background-color: #33cc33;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        .buttons input {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons input#yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .buttons input#no {
+            background-color: #f44336;
+            color: white;
+        }
+        .buttons input.selected {
+            border: 2px solid black;
+        }
+        .submit-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .submit-button input {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        #comment-container, #additional-container, #scale-container, #solicitacao-container, #submit, #thank-you-message {
+            display: none;
+        }
+        #comment {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #os-container {
+            margin-top: 20px;
+        }
+        #os-number {
+            width: 100%;
+            padding: 1px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        #confirm-os {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hospital da Baleia</h1>
+        <div id="os-container">
+            <label for="os-number">Digite o Número da OS:</label>
+            <input type="number" id="os-number" required>
+            <button id="confirm-os">Confirmar</button>
+        </div>
+        <div id="additional-container">
+            <div id="scale-container">
+                <h2>Avaliação de satisfação TIC</h2>
+                <p>Em uma escala de 0 a 10, o quanto você está satisfeito(a) com o atendimento prestado?</p>
+                <div class="scale">
+                    <div data-value="0">0</div>
+                    <div data-value="1">1</div>
+                    <div data-value="2">2</div>
+                    <div data-value="3">3</div>
+                    <div data-value="4">4</div>
+                    <div data-value="5">5</div>
+                    <div data-value="6">6</div>
+                    <div data-value="7">7</div>
+                    <div data-value="8">8</div>
+                    <div data-value="9">9</div>
+                    <div data-value="10">10</div>
+                </div>
+            </div>
+            <div id="comment-container">
+                <p>Queremos ouvir você!</p>
+                <p>Aqui é o seu espaço para direcionar elogios, sugestões ou pontos de melhoria.(opcional)</p>
+                <textarea id="comment" placeholder="Digite sua mensagem aqui..."></textarea>
+            </div>
+            <div id="solicitacao-container">
+                <h2>Sua solicitação foi atendida?</h2>
+                <div class="buttons">
+                    <input type="button" id="yes" value="SIM">
+                    <input type="button" id="no" value="NÃO">
+                </div>
+            </div>
+            <div class="submit-button">
+                <input type="submit" id="submit" value="Enviar">
+            </div>
+        </div>
+        <div id="thank-you-message">
+            <h2>Obrigado pela sua resposta!</h2>
+            <p>Sua opinião é muito importante para nós.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
